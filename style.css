@@ -1,0 +1,239 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+body{
+    background-color: hsl(0, 0%, 100%);
+}
+
+header{
+    display: flex;
+    width: 90rem;
+    height: 10rem;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid red; */
+    margin: 0 auto;
+    margin-bottom: 5rem;
+    border-bottom: 1px solid hsl(220, 14%, 75%)
+}
+
+.header-leftside{
+    display: flex;
+    width: 50rem;
+    padding: 2rem;
+    /* border: 1px solid black; */
+    font-size: 1rem;
+}
+
+nav{
+    margin-left: 2rem;
+}
+
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0rem 1rem;
+}
+
+nav a{
+    text-decoration: none;
+    color: hsl(219, 9%, 45%);
+}
+
+
+.user-profile{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    /* border: 1px solid black; */
+    width: 8rem;
+}
+
+.user-avatar{
+    width: 4rem;
+    border: 2px solid transparent;
+
+}
+
+.user-avatar:hover{
+    border: 2px solid hsl(26, 100%, 55%);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+/* main section */
+
+main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 80rem;
+    height: 40rem;
+    /* border: 1px solid black; */
+    margin: 0 auto;
+}
+
+.product-images{
+    width: 50rem;
+    height: 40rem;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.carousel{
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid black; */
+    overflow: hidden;
+    width: 30rem;
+    height: 30rem;
+    border-radius: 1rem;
+}
+
+.large-image-gallery{
+    display: flex;
+}
+
+.images{
+    width: 30rem;
+    height: 30rem;
+    object-fit: cover;
+}
+
+.small-image-gallery{
+    width: 30rem;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.thumbnail{
+    width: 6rem;
+    height: 6rem;
+    border-radius: 1rem; 
+}
+
+/* product - description */
+
+.product-description{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30rem;
+    height: 30rem;
+    /* border: 1px solid black; */
+}
+
+h4{
+    color : hsl(26, 100%, 55%);
+    letter-spacing: 0.1rem;
+    font-size: 0.9rem;
+    
+}
+
+h1{
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.description-para{
+    line-height: 2rem;
+    color:hsl(219, 9%, 45%);
+    margin-bottom: 0.5rem;
+}
+
+.sell{
+    display: flex;
+    width: 11rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sale-price{
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.percentage{
+    width: 3rem;
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+    background-color: hsl(25, 100%, 94%); 
+    color: hsl(26, 100%, 55%);   
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.previous-price{
+   color : hsl(220, 14%, 75%);
+   text-decoration: line-through;
+}
+
+.select-items{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.item-add-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 10rem;
+    /* border: 1px solid black; */
+    background-color:  hsl(233, 60%, 97%);
+    border-radius: 0.5rem;
+}
+
+.item-add-div button{
+    padding: 1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.item-add-div button:hover{
+    opacity: 0.5;
+}
+
+.add-items{
+    width: 18rem;
+    padding: 1.2rem;
+    background-color: hsl(26, 100%, 55%);
+    color: hsl(0, 0%, 100%);
+    display: inline-flex;
+    justify-content: center;
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.add-items:hover{
+    opacity: 0.5;
+}
+
+.add-items p {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-left: 1rem;
+}
+
