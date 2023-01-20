@@ -22,15 +22,35 @@
 
   <script defer src="./script.js"></script>
 
-
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <!-- <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style> -->
 </head>
 <body>
+
+
+  <div class="lightbox-product-images">
+
+    <img id="close" src="./images/icon-close.svg" alt="">
+
+    <img id="previous" src="./images/icon-previous.svg" alt="">
+    <img id="next" src="./images/icon-next.svg" alt="">
+
+    <div class="lightbox-gallery">
+      <div class="lightbox-large-image-gallery">
+        <img src="./images/image-product-1.jpg" alt="large image of the product" class="lightbox-images">
+        <img src="./images/image-product-2.jpg" alt="large image of the product" class="lightbox-images">
+        <img src="./images/image-product-3.jpg" alt="large image of the product" class="lightbox-images">
+        <img src="./images/image-product-4.jpg" alt="large image of the product" class="lightbox-images">
+      </div>
+
+    </div>
+
+      <div class="lightbox-small-image-gallery">
+        <img src="./images/image-product-1-thumbnail.jpg" alt="product-thumbnail" id="img1" class="lightbox-thumbnail">
+        <img src="./images/image-product-2-thumbnail.jpg" alt="product-thumbnail" id="img2" class="lightbox-thumbnail">
+        <img src="./images/image-product-3-thumbnail.jpg" alt="product-thumbnail" id="img3" class="lightbox-thumbnail">
+        <img src="./images/image-product-4-thumbnail.jpg" alt="product-thumbnail" id="img4" class="lightbox-thumbnail">
+
+      </div>
+    </div>
 
   <header>
 
@@ -62,6 +82,7 @@
   </header>
 
   <!-- header ends here ! -->
+
 
   <main>
     <div class="product-images">
@@ -106,11 +127,11 @@
         <div class="select-items">
 
         <div class="item-add-div">
-          <button><img src="./images/icon-minus.svg" alt=""></button>
+          <button class="minus"><img src="./images/icon-minus.svg" alt=""></button>
 
           <p class="total-items">0</p>
 
-          <button><img src="./images/icon-plus.svg" alt=""></button>
+          <button class="plus"><img src="./images/icon-plus.svg" alt=""></button>
 
         </div>
 
@@ -129,11 +150,13 @@
   </main>
 
 
+  <footer>
+   
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://github.com/Darshan-Pandya10/">Darshan Pandya</a>.
+  </footer>
 
   
-  <!-- <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div> -->
+  
 </body>
 </html>

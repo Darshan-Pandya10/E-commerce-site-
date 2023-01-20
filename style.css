@@ -7,6 +7,7 @@
 
 body{
     background-color: hsl(0, 0%, 100%);
+    position: relative;
 }
 
 header{
@@ -57,6 +58,7 @@ nav a{
 .user-avatar{
     width: 4rem;
     border: 2px solid transparent;
+    margin-left: 3rem;
 
 }
 
@@ -102,7 +104,9 @@ main{
 
 .large-image-gallery{
     display: flex;
+    transition: transform 400ms ease-in-out;
 }
+
 
 .images{
     width: 30rem;
@@ -123,6 +127,16 @@ main{
     width: 6rem;
     height: 6rem;
     border-radius: 1rem; 
+}
+
+.when-get-clicked{
+    border: 3px solid hsl(26, 100%, 55%);
+    opacity: 0.8;
+}
+
+.thumbnail:hover{
+    opacity: 0.5;
+    cursor: pointer;
 }
 
 /* product - description */
@@ -188,7 +202,10 @@ h1{
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+}
 
+.select-items p {
+    font-weight: 700;
 }
 
 .item-add-div{
@@ -225,7 +242,10 @@ h1{
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
+    box-shadow: 0px 3px 15px hsl(25, 94%, 58%);
 }
+
+
 
 .add-items:hover{
     opacity: 0.5;
@@ -237,3 +257,111 @@ h1{
     margin-left: 1rem;
 }
 
+footer{
+    width: 100vw;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+footer a{
+    color: hsl(26, 100%, 55%);;
+}
+
+/* pop up lightbox - gallery */
+
+
+.lightbox-product-images{
+    width: 100vw;
+    height: 100vh;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background-color: hsl(0, 0%, 0% , 0.75);
+    visibility: hidden;
+}
+
+.visible-lightbox-product-images{
+    visibility: visible;
+}
+
+.lightbox-gallery{
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid black; */
+    overflow: hidden;
+    width: 35rem;
+    height: 35rem;
+    border-radius: 1rem;
+    margin-bottom: 3rem;
+}
+
+.lightbox-large-image-gallery{
+    display: flex;
+    transition: transform 400ms ease-in-out;
+}
+
+
+.lightbox-images{
+    width: 35rem;
+    height: 35rem;
+    object-fit: cover;
+}
+
+.lightbox-small-image-gallery{
+    width: 35rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.lightbox-thumbnail{
+    width: 6rem;
+    height: 6rem;
+    border-radius: 1rem; 
+}
+
+.when-get-clicked{
+    border: 3px solid hsl(26, 100%, 55%);
+    opacity: 0.8;
+}
+
+.lightbox-thumbnail:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#previous , #next{
+    position: absolute;  
+    background-color: aliceblue;
+    padding: 1.2rem 1.4rem;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 99999;
+}
+
+#previous{
+    top: 40%;
+    left: 34%;
+}
+
+#previous:hover{
+    fill: hsl(26, 100%, 55%);
+
+}
+
+#next{
+    top: 40%;
+    right: 34%;
+}
+
+#close{
+    position: absolute;
+    top: 8%;
+    right: 36%;
+    width: 1.5rem;
+    cursor: pointer;
+}
