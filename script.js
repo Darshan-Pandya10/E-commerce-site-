@@ -1,9 +1,3 @@
-const largeImageGallery = document.querySelector('.large-image-gallery');
-const thumbnails = document.querySelectorAll('.thumbnail');
-const plus = document.querySelector('.plus');
-const minus = document.querySelector('.minus');
-const totalItems = document.querySelector('.total-items');
-
 // for pop up
 const close = document.querySelector('#close');
 const previous = document.querySelector('#previous');
@@ -11,11 +5,26 @@ const next = document.querySelector('#next');
 const lightBoxProductImages = document.querySelector('.lightbox-product-images');
 const lightBoxLargeImageGallery = document.querySelector('.lightbox-large-image-gallery');
 const lightBoxImages = document.querySelectorAll('.lightbox-images')
-const lightBoxThumbnail = document.querySelectorAll('.lightbox-thumbnail')
+const lightBoxThumbnail = document.querySelectorAll('.lightbox-thumbnail');
+const largeImageGallery = document.querySelector('.large-image-gallery');
+const thumbnails = document.querySelectorAll('.thumbnail');
 
+
+
+// cart items
+const plus = document.querySelector('.plus');
+const minus = document.querySelector('.minus');
+const totalItems = document.querySelector('.total-items');
 let totalItemCount = 0;
-
-
+const addbtn = document.querySelector('.add-items');
+const showItemCount = document.querySelector('.show-item-count');
+const cart = document.querySelector('.cart');
+const cartBox = document.querySelector('.cart-box');
+const totalAddItem = document.querySelector('.total-add-item');
+const total = document.querySelector('.total');
+const itemDetails = document.querySelector('.item-details');
+const emptyMessage = document.querySelector('.empty-message');
+const deleteItem = document.querySelector('#delete')
 
 thumbnails.forEach(thumbnail => {
     thumbnail.addEventListener('click', () => {
@@ -38,6 +47,15 @@ thumbnails.forEach(thumbnail => {
 })
 
 
+
+
+
+// cart items 
+
+if(totalItemCount === 0){
+    minus.disabled = true;
+}
+
 plus.addEventListener('click', () => {
     totalItemCount++;
     totalItems.innerText = `${totalItemCount}`
@@ -48,11 +66,72 @@ minus.addEventListener('click', () => {
     totalItems.innerText = `${totalItemCount}`
 })
 
-if(totalItemCount === 0){
-    minus.disabled = true;
-}
 
-console.log(largeImageGallery)
+
+addbtn.addEventListener('click', () => {
+
+
+    const itemDetails = document.createElement('div');
+    cartBox.appendChild(itemDetails);
+    itemDetails.classList.add('item-details');
+
+    const itemPic = document.createElement('img');
+    itemDetails.appendChild(itemPic)
+    itemPic.setAttribute('src', '/images/image-product-1-thumbnail.jpg');
+    itemPic.classList.add('cart-img');
+
+    const itemName = document.createElement('p');
+    itemDetails.appendChild(itemName);
+    itemName.classList.add('item-name');
+    itemName.innerText += `all Limited Edition Sneakers $125.00 x `;
+
+    const totalAddItem = document.createElement('span');
+    itemName.appendChild(totalAddItem);
+    totalAddItem.classList.add('total-add-item');
+    totalAddItem.innerText = `${totalItemCount}`;
+
+    const total = document.createElement('span');
+    itemName.appendChild(total);
+    total.classList.add('total');
+
+    const deleteItem = document.createElement('img');
+    itemDetails.appendChild(deleteItem);
+    deleteItem.setAttribute('src', './images/icon-delete.svg');
+
+    deleteItem.addEventListener('click', () => {
+        itemDetails.remove()
+    })
+
+
+    showItemCount.innerText = `${totalItemCount}`;
+    totalAddItem.innerText = `${totalItemCount}`;
+
+    let totalPrice = 125.00 * totalItemCount;
+
+    total.innerText = '$' + totalPrice + '.00';
+
+})
+
+
+
+cart.addEventListener('click' , () => {
+    cartBox.classList.toggle('show-cart-box');
+
+    if(totalItemCount == 0){
+        itemDetails.classList.add('hide-item-details');
+        emptyMessage.classList.remove('hide-empty-message'); 
+    }
+
+    else if (totalItemCount !== 0){
+        emptyMessage.classList.add('hide-empty-message'); 
+        itemDetails.classList.remove('hide-item-details');
+    }
+})
+
+
+
+
+// sliding images
 
 largeImageGallery.addEventListener('click' , () => {
 
