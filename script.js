@@ -9,6 +9,25 @@ const lightBoxThumbnail = document.querySelectorAll('.lightbox-thumbnail');
 const largeImageGallery = document.querySelector('.large-image-gallery');
 const thumbnails = document.querySelectorAll('.thumbnail');
 
+// responsive design carousel
+
+const ssPrevious = document.querySelector('#ss-previous');
+const ssNext = document.querySelector('#ss-next');
+const largeImages = document.querySelectorAll('.images');
+const hamburger = document.querySelector('.hamburger');
+const ssNavbar = document.querySelector('.ss-navbar');
+const closeForHamburger = document.querySelector('.close-for-hamburger');
+
+hamburger.addEventListener('click', () => {
+    ssNavbar.classList.add('ss-navbar-show');
+})
+
+closeForHamburger.addEventListener('click', () => {
+    ssNavbar.classList.remove('ss-navbar-show');
+})
+
+
+
 
 
 // cart items
@@ -200,6 +219,37 @@ next.addEventListener('click', () => {
 previous.addEventListener('click', () => {
     index--
     changeImage()
+}) 
+
+
+
+// responsive design carousel
+
+function changeImageForSS(){
+
+    if(index > largeImages.length - 1)
+    {
+        index = 0;
+    }
+
+    else if (index < 0)
+    {
+        index = largeImages.length - 1 
+    }
+
+    largeImageGallery.style.transform = `translate(${-index * 30}rem)`;
+
+
+}
+
+ssNext.addEventListener('click', () => {
+    index++
+    changeImageForSS()
+})    
+
+ssPrevious.addEventListener('click', () => {
+    index--
+    changeImageForSS()
 }) 
 
 
