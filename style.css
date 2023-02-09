@@ -495,7 +495,7 @@ footer a{
 /* responsive design*/
 
 @media (max-width : 1300px){
-    .cart-box{
+     .cart-box{
         z-index: 9999;
         box-shadow: none;
     }
@@ -523,7 +523,7 @@ footer a{
     }
 
     .description-para{
-        margin: 0.5rem;
+        margin: 0.5rem 0rem;
     }
 
     .sell{
@@ -548,7 +548,6 @@ footer a{
     cursor: pointer;
     z-index: 9;
   }
-
 
   #ss-previous{
     top: 13rem;
@@ -680,6 +679,12 @@ footer a{
         margin: 1rem 0rem;
         cursor: pointer;
     }
+
+    .cart-box{
+        top: 10%;
+        right: 25%;
+        /* border: 1px solid black; */
+    }
    
 }
 
@@ -705,6 +710,12 @@ footer a{
     .product-description{
         padding: 1rem;
     } 
+
+    .cart-box{
+        top: 10%;
+        right: 20%;
+        /* border: 1px solid black; */
+    }
 }
 
 @media (max-width : 500px){
@@ -727,17 +738,32 @@ footer a{
     }
 
     .product-images{
-        width: 100vw;
+        width: 98vw;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
         position: relative;
+        margin-left: 1.8rem;
+        margin-right: 1rem;
     }
 
     .carousel{
         width: 95vw;
-        margin: 0 0.5rem;
+    }
+
+    
+    .ss-navbar-show{
+        position: absolute;
+        width: 17rem;
+        height: 120vh;
+        background-color: white;
+        color: white;
+        font-weight: 700;
+        z-index: 9999;
+        /* border: 1px solid black; */
+        padding: 1.5rem;
+        transform: translateX(0rem);
     }
 
     .product-description{
@@ -757,6 +783,12 @@ footer a{
     .product-description{
         padding: 0rem 1.5rem;
     }
+
+    .cart-box{
+        top: 9%;
+        right: 15%;
+        border: 1px solid black;
+    }
 }
 
 @media (max-width : 485px){
@@ -767,6 +799,8 @@ footer a{
 
     .product-images{
        width: 98vw;
+       margin-left: 1.75rem;
+       margin-right: 1rem;
         height: 25rem;
         align-items: center;
         justify-content: center;
@@ -775,9 +809,15 @@ footer a{
     }
     
     .carousel{
-       width: 98vw;
+       width: 95vw;
         border-radius: 0rem;
         height: 25rem;
+    }
+
+    .cart-box{
+        top: 9%;
+        right: 13%;
+        border: 1px solid black;
     }
 
     #ss-previous{
