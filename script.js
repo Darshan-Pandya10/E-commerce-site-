@@ -15,7 +15,6 @@ const thumbnails = document.querySelectorAll('.thumbnail');
 const plus = document.querySelector('.plus');
 const minus = document.querySelector('.minus');
 const totalItems = document.querySelector('.total-items');
-let totalItemCount = 0;
 const addbtn = document.querySelector('.add-items');
 const showItemCount = document.querySelector('.show-item-count');
 const cart = document.querySelector('.cart');
@@ -23,8 +22,9 @@ const cartBox = document.querySelector('.cart-box');
 const totalAddItem = document.querySelector('.total-add-item');
 const total = document.querySelector('.total');
 const itemDetails = document.querySelector('.item-details');
-const emptyMessage = document.querySelector('.empty-message');
 const deleteItem = document.querySelector('#delete')
+let itemQuantity =  +totalItems.innerText;
+
 
 thumbnails.forEach(thumbnail => {
     thumbnail.addEventListener('click', () => {
@@ -47,33 +47,46 @@ thumbnails.forEach(thumbnail => {
 })
 
 
-
-
-
 // cart items 
 
-if(totalItemCount === 0){
-    minus.disabled = true;
-}
-
 plus.addEventListener('click', () => {
-    totalItemCount++;
-    totalItems.innerText = `${totalItemCount}`
+    itemQuantity++;
+    totalItems.innerText = `${itemQuantity}`;  
 })
+
+
 
 minus.addEventListener('click', () => {
-    totalItemCount--;
-    totalItems.innerText = `${totalItemCount}`
+    itemQuantity = itemQuantity < 1 ? 1 : itemQuantity;
+    if(itemQuantity === 1){
+        return null;
+    }
+    itemQuantity--;
+    totalItems.innerText = `${itemQuantity}`;
 })
 
+let cartArray = [];
+console.log(cartArray.length)
+
+function Item(name,quantity) {
+    this.name = name,
+    this.quantity = quantity
+  }
+
+  const emptyMessage = document.createElement('p');
+    cartBox.appendChild(emptyMessage);
 
 
 addbtn.addEventListener('click', () => {
 
 
+    let item = new Item('Fall Limited Edition Sneakers',itemQuantity)
+    cartArray.push(item); 
     const itemDetails = document.createElement('div');
+    console.log(cartArray)
     cartBox.appendChild(itemDetails);
     itemDetails.classList.add('item-details');
+
 
     const itemPic = document.createElement('img');
     itemDetails.appendChild(itemPic)
@@ -88,7 +101,7 @@ addbtn.addEventListener('click', () => {
     const totalAddItem = document.createElement('span');
     itemName.appendChild(totalAddItem);
     totalAddItem.classList.add('total-add-item');
-    totalAddItem.innerText = `${totalItemCount}`;
+    totalAddItem.innerText = `${itemQuantity}`;
 
     const total = document.createElement('span');
     itemName.appendChild(total);
@@ -97,35 +110,52 @@ addbtn.addEventListener('click', () => {
     const deleteItem = document.createElement('img');
     itemDetails.appendChild(deleteItem);
     deleteItem.setAttribute('src', './images/icon-delete.svg');
+    deleteItem.classList.add('delete');
+
+
+    // delete item from cartArray and show empty message if cartArray is empty.
 
     deleteItem.addEventListener('click', () => {
-        itemDetails.remove()
+    itemDetails.remove();
+    cartArray.pop(this.item); 
+    console.log(cartArray);
+    console.log(cartArray.length)
+    showItemCount.innerText = `${cartArray.length}`;
+    if(cartArray.length === 0){
+        emptyMessage.innerText = `Your cart is empty.`;
+        cart.addEventListener('click' , () => {
+            emptyMessage.innerText = `Your cart is empty.`;
+        })
+    }
     })
 
 
-    showItemCount.innerText = `${totalItemCount}`;
-    totalAddItem.innerText = `${totalItemCount}`;
+    showItemCount.innerText = `${cartArray.length}`;
+    totalAddItem.innerText = `${itemQuantity}`;
 
-    let totalPrice = 125.00 * totalItemCount;
+    let totalPrice = 125.00 * itemQuantity;
 
     total.innerText = '$' + totalPrice + '.00';
 
+    console.log(cartArray.length)
+
+    if(cartArray.length > 0){
+        cart.addEventListener('click' , () => {
+        emptyMessage.innerText = ``;
+    })
+    }
 })
+
+// addbtn eventlistner ends here!
 
 
 
 cart.addEventListener('click' , () => {
     cartBox.classList.toggle('show-cart-box');
 
-    if(totalItemCount == 0){
-        itemDetails.classList.add('hide-item-details');
-        emptyMessage.classList.remove('hide-empty-message'); 
-    }
-
-    else if (totalItemCount !== 0){
-        emptyMessage.classList.add('hide-empty-message'); 
-        itemDetails.classList.remove('hide-item-details');
-    }
+    // show empty card when user first click on cart icon.
+        emptyMessage.innerText = `Your cart is empty.`;
+        emptyMessage.classList.add('empty-message');
 })
 
 
@@ -141,8 +171,6 @@ lightBoxProductImages.classList.add('visible-lightbox-product-images');
 close.addEventListener('click' , () => {
     lightBoxProductImages.classList.remove('visible-lightbox-product-images');  
     })
-
-    console.log(lightBoxImages)
 
     let index = 0;
 
