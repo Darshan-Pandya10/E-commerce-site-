@@ -92,6 +92,7 @@ main{
     align-items: center;
     justify-content: space-around;
     position: relative;
+    cursor: pointer;
 }
 
 .carousel{
@@ -273,8 +274,8 @@ footer a{
 
 .lightbox-product-images{
     width: 100vw;
-    height: 100vh;
-    /* border: 1px solid black; */
+    height: 140vh;
+    /* border: 1px solid rgb(197, 45, 45); */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -287,6 +288,7 @@ footer a{
 
 .visible-lightbox-product-images{
     visibility: visible;
+    z-index: 999;
 }
 
 .lightbox-gallery{
@@ -336,6 +338,12 @@ footer a{
     cursor: pointer;
 }
 
+
+.buttons-div{
+    position: relative;
+}
+
+
 #previous , #next{
     position: absolute;  
     background-color: aliceblue;
@@ -346,42 +354,49 @@ footer a{
 }
 
 #previous{
-    top: 40%;
-    left: 34%;
-}
-
-#previous:hover{
-    fill: hsl(26, 100%, 55%);
-
+    top: 17.5rem;
+    right: 16.5rem;
 }
 
 #next{
-    top: 40%;
-    right: 34%;
-}
+    top: 17.5rem;
+    right: -18.5rem;
+} 
 
 #close{
-    position: absolute;
-    top: 8%;
-    right: 36%;
+    position: relative;
+    bottom: 1rem;
+    right: -15rem;
     width: 1.5rem;
     cursor: pointer;
+    z-index: 99;
 }
 
 /* show-item-count */
+
+.cart-and-quantity{
+    position: relative;
+}
 
 .cart{
     cursor: pointer;
 }
 
-.show-item-count{
+.item-count{
     position: absolute;
-    top: 3.7rem;
-    right: 21.3rem;
-    padding: 0rem 0.4rem;
+    top: -1.0rem;
+    left: 0.4rem;
+    display: block;
+    margin-bottom: 1rem;
+    padding: 0rem 0.5rem;
     border-radius: 0.5rem;
     color: white;
     font-weight: 700;
+    visibility: hidden;
+}
+
+.show-item-count{
+    visibility: visible;
     background-color: hsl(26, 100%, 55%);
 }
 
@@ -390,8 +405,8 @@ footer a{
     height: 15rem;
     overflow-y: scroll;
     position: absolute;
-    top: 8rem;
-    right: 15rem;
+    top: 8%;
+    right: 15%;
     background-color: white;
     border-radius: 0.5rem;
     box-shadow: 0 3px 25px 5px hsl(217, 15%, 90%);
@@ -463,11 +478,7 @@ footer a{
     display: none;
 }
 
-.lightbox-product-images{
-    display: none;
-  } 
-
-  .ss-navbar{
+.ss-navbar{
     position: absolute;
     width: 17rem;
     height: 140vh;
@@ -482,6 +493,13 @@ footer a{
   }
 
 /* responsive design*/
+
+@media (max-width : 1300px){
+    .cart-box{
+        z-index: 9999;
+        box-shadow: none;
+    }
+}
 
 @media (max-width: 1150px ){
     main{
@@ -658,7 +676,7 @@ footer a{
     }
 
     .close-for-hamburger{
-        width: 1.5rem;
+        width: 2.4rem;
         margin: 1rem 0rem;
         cursor: pointer;
     }

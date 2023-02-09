@@ -27,15 +27,12 @@ closeForHamburger.addEventListener('click', () => {
 })
 
 
-
-
-
 // cart items
 const plus = document.querySelector('.plus');
 const minus = document.querySelector('.minus');
 const totalItems = document.querySelector('.total-items');
 const addbtn = document.querySelector('.add-items');
-const showItemCount = document.querySelector('.show-item-count');
+const itemCount = document.querySelector('.item-count');
 const cart = document.querySelector('.cart');
 const cartBox = document.querySelector('.cart-box');
 const totalAddItem = document.querySelector('.total-add-item');
@@ -139,17 +136,19 @@ addbtn.addEventListener('click', () => {
     cartArray.pop(this.item); 
     console.log(cartArray);
     console.log(cartArray.length)
-    showItemCount.innerText = `${cartArray.length}`;
+    itemCount.innerText = `${cartArray.length}`;
     if(cartArray.length === 0){
         emptyMessage.innerText = `Your cart is empty.`;
+        itemCount.classList.remove('show-item-count');
         cart.addEventListener('click' , () => {
             emptyMessage.innerText = `Your cart is empty.`;
         })
     }
     })
 
+    itemCount.classList.add('show-item-count')
 
-    showItemCount.innerText = `${cartArray.length}`;
+    itemCount.innerText = `${cartArray.length}`;
     totalAddItem.innerText = `${itemQuantity}`;
 
     let totalPrice = 125.00 * itemQuantity;
@@ -183,6 +182,8 @@ cart.addEventListener('click' , () => {
 // sliding images
 
 largeImageGallery.addEventListener('click' , () => {
+
+    console.log('image clicked')
 
 lightBoxProductImages.classList.add('visible-lightbox-product-images');
 })
