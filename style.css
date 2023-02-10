@@ -263,6 +263,7 @@ footer{
     width: 100vw;
     text-align: center;
     margin-top: 3rem;
+    padding: 1rem;
 }
 
 footer a{
@@ -787,7 +788,7 @@ footer a{
     .cart-box{
         top: 9%;
         right: 15%;
-        border: 1px solid black;
+        /* border: 1px solid black; */
     }
 }
 
@@ -817,7 +818,7 @@ footer a{
     .cart-box{
         top: 9%;
         right: 13%;
-        border: 1px solid black;
+        /* border: 1px solid black; */
     }
 
     #ss-previous{
@@ -839,4 +840,34 @@ footer a{
         cursor: pointer;
         z-index: 9;
       }
+}
+
+@media (max-width:450px){
+    .cart-box{
+        top: 10%;
+        right: 8%;
+        /* border: 1px solid black; */
+    }
+
+    .product-images{
+        margin-left: 1.4rem;
+        margin-right: 1rem;
+    }
+
+    .carousel{
+        width: 95vw;
+    }
+}
+
+@media (max-width:420px){
+        .cart-box{
+            top: 10%;
+            right: 5%;
+            /* border: 1px solid black; */
+        }
+
+        .product-images{
+            margin-left: 1.2rem;
+            margin-right: 1rem;
+        }
 }
